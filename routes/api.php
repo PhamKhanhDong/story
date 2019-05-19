@@ -17,10 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->group(function(){
+Route::namespace('Category')->group(function(){
     Route::get('/categories', 'CategoriesController@index');
     Route::post('/categories', 'CategoriesController@store');
     Route::put('/categories/{category}', 'CategoriesController@update');
     Route::delete('/categories/{category}', 'CategoriesController@destroy');
 });
-
